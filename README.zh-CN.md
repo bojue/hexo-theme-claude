@@ -1,6 +1,6 @@
 # hexo-theme-claude
 
-[English](README.md) | 简体中文
+[English](README.md) | [简体中文](README.zh-CN.md)
 
 一个内容优先的 Hexo 博客主题，固定浅色，使用 Claude 暖陶土配色（#d97757）。
 

@@ -1,6 +1,6 @@
 # hexo-theme-claude
 
-English | [简体中文](README.zh-CN.md)
+[English](README.md) | [简体中文](README.zh-CN.md)
 
 A content-first Hexo blog theme. Light mode only, styled with the Claude warm-clay palette (#d97757).
 
