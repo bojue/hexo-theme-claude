@@ -1,0 +1,49 @@
+<header class="site-header">
+  <div class="container nav-inner">
+    <!-- Brand & Search -->
+    <div style="display: flex; align-items: center; gap: 1.25rem;">
+      <a href="<%- url_for('/') %>" class="brand-logo" aria-label="<%= theme.brand.name || config.title %>">
+        <span><%= theme.brand.name || config.title %></span>
+      </a>
+
+      <% if (theme.search && theme.search.enable) { %>
+      <button id="search-trigger" class="search-trigger" aria-label="<%= __('search') %>">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span class="search-label" style="display: none;"><%= __('search') %></span>
+        <kbd class="search-kbd">⌘K</kbd>
+      </button>
+      <% } %>
+    </div>
+
+    <!-- Navigation & Tools -->
+    <div class="nav-actions">
+      <nav class="nav-links">
+        <% for (let name in theme.menu) { %>
+          <% const link = theme.menu[name]; %>
+          <a href="<%- url_for(link) %>" class="nav-link <%= claude_is_current(link) ? 'active' : '' %>">
+            <%= name %>
+          </a>
+        <% } %>
+      </nav>
+
+      <div style="width: 1px; height: 1rem; background-color: var(--border-color); margin: 0 0.25rem;"></div>
+
+      <% if (theme.social && theme.social.github) { %>
+      <a href="<%= theme.social.github %>" target="_blank" rel="noopener noreferrer" class="icon-btn" title="GitHub" aria-label="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+      </a>
+      <% } %>
+    </div>
+  </div>
+</header>
+
+<style>
+  @media (min-width: 640px) {
+    .search-label { display: inline !important; }
+  }
+</style>

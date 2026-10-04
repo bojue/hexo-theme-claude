@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <span>&copy; <%= new Date().getFullYear() %> <%= theme.brand.name || config.author %></span>
+      <% if (theme.footer && theme.footer.license) { %>
+        <span style="margin: 0 0.375rem; opacity: 0.5;">·</span>
+        <span><%= theme.footer.license %></span>
+      <% } %>
+    </div>
+
+    <div class="footer-links">
+      <% for (let name in theme.menu) { %>
+        <a href="<%- url_for(theme.menu[name]) %>"><%= name %></a>
+      <% } %>
+      <a href="javascript:void(0)" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Top &uarr;</a>
+    </div>
+  </div>
+</footer>

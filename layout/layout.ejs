@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="<%= config.language || 'zh-CN' %>">
+<head>
+  <%- partial('_partial/head') %>
+</head>
+<body
+  data-i18n-copy="<%= __('copy_code') %>"
+  data-i18n-copied="<%= __('copied') %>"
+  data-i18n-copy-error="<%= __('copy_error') %>"
+>
+  <!-- Header / Navigation -->
+  <%- partial('_partial/header') %>
+
+  <!-- Main Content -->
+  <main id="main-content" style="flex: 1;">
+    <%- body %>
+  </main>
+
+  <!-- Footer -->
+  <%- partial('_partial/footer') %>
+
+  <!-- Search Modal -->
+  <%- partial('_partial/search') %>
+
+  <!-- Scripts -->
+  <script src="<%- url_for('js/main.js') %>"></script>
+  <% if (theme.search && theme.search.enable) { %>
+    <script src="<%- url_for('js/search.js') %>"></script>
+  <% } %>
+</body>
+</html>

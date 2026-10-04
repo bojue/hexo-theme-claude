@@ -1,0 +1,26 @@
+{
+  "name": "hexo-theme-claude",
+  "version": "1.0.0",
+  "description": "极简、内容优先（Content-First）的现代 Hexo 技术博客主题，采用 Claude 官方经典暖陶土配色与全功能自适应右侧目录吸顶。",
+  "keywords": [
+    "hexo",
+    "theme",
+    "hexo-theme",
+    "minimalist",
+    "content-driven",
+    "claude",
+    "clean",
+    "blog",
+    "responsive"
+  ],
+  "author": "Bojue <gitbojue@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bojue/hexo-theme-claude.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bojue/hexo-theme-claude/issues"
+  },
+  "homepage": "https://github.com/bojue/hexo-theme-claude#readme"
+}

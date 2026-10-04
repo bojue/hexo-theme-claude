@@ -1,0 +1,14 @@
+archive: 归档
+search: 搜索
+search_placeholder: 搜索文章标题、内容或标签 (⌘K)...
+search_hint: 输入关键词搜索文章标题、内容或标签...
+search_empty: 暂无可搜索的文章索引
+search_no_results: 未找到相关文章
+toc_title: 文章目录
+prev_post: 上一篇
+next_post: 下一篇
+read_time: 分钟阅读
+words: 字
+copy_code: 复制
+copied: 已复制
+copy_error: 复制失败

@@ -1,0 +1,14 @@
+archive: Archive
+search: Search
+search_placeholder: Search articles by title, content or tag (⌘K)...
+search_hint: Type to search by title, content or tag...
+search_empty: No search index available
+search_no_results: No matching articles found
+toc_title: On this page
+prev_post: Previous
+next_post: Next
+read_time: min read
+words: words
+copy_code: Copy
+copied: Copied
+copy_error: Failed

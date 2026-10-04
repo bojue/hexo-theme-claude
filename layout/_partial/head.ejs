@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title><% if (page.title) { %><%= page.title %> | <% } %><%= config.title %></title>
+<meta name="author" content="<%= config.author %>">
+<meta name="description" content="<%= page.description || page.excerpt || config.description %>">
+
+<% if (page.keywords || config.keywords) { %>
+<meta name="keywords" content="<%= (page.keywords || config.keywords) %>">
+<% } %>
+
+<meta name="theme-color" content="#faf9f5">
+
+<!-- OpenGraph -->
+<meta property="og:type" content="<%= is_post() ? 'article' : 'website' %>">
+<meta property="og:title" content="<% if (page.title) { %><%= page.title %> | <% } %><%= config.title %>">
+<meta property="og:description" content="<%= page.description || page.excerpt || config.description %>">
+<meta property="og:url" content="<%= url %>">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" href="<%- url_for('css/claude.css') %>">

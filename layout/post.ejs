@@ -1,0 +1,108 @@
+<div class="container-wide">
+  <div class="post-layout">
+
+    <!-- Main Article Column -->
+    <article class="post-content-column">
+      <!-- Header -->
+      <header class="post-header">
+        <div class="meta">
+          <time datetime="<%= date_xml(page.date) %>"><%= date(page.date, 'YYYY-MM-DD') %></time>
+          <% if (page.categories && page.categories.length) { %>
+            <span style="opacity: 0.5;">·</span>
+            <span><%= page.categories.data[0].name %></span>
+          <% } %>
+          <% if (theme.reading_info && theme.reading_info.enable) { %>
+            <span style="opacity: 0.5;">·</span>
+            <span><%= claude_read_time(page.content) %> <%= __('read_time') %></span>
+            <span style="opacity: 0.5;">·</span>
+            <span><%= claude_word_count(page.content) %> <%= __('words') %></span>
+          <% } %>
+        </div>
+
+        <h1 class="title"><%= page.title %></h1>
+      </header>
+
+      <!-- Markdown Prose Content -->
+      <div class="prose">
+        <%- page.content %>
+      </div>
+
+      <!-- Post Nav (Previous & Next Post Cards) -->
+      <% if (theme.post_nav && theme.post_nav.enable && (page.prev || page.next)) { %>
+        <nav class="post-nav-container">
+          <% if (page.prev) { %>
+            <a href="<%- url_for(page.prev.path) %>" class="post-nav-card">
+              <span class="label">&larr; <%= __('prev_post') %></span>
+              <span class="title"><%= page.prev.title %></span>
+            </a>
+          <% } else { %>
+            <div></div>
+          <% } %>
+
+          <% if (page.next) { %>
+            <a href="<%- url_for(page.next.path) %>" class="post-nav-card" style="text-align: right;">
+              <span class="label"><%= __('next_post') %> &rarr;</span>
+              <span class="title"><%= page.next.title %></span>
+            </a>
+          <% } %>
+        </nav>
+      <% } %>
+    </article>
+
+    <!-- Right Column: Sticky Table of Contents (Desktop >= 1024px) -->
+    <% if (theme.toc && theme.toc.enable && toc(page.content)) { %>
+      <aside class="post-toc-column">
+        <div class="toc-card">
+          <div class="toc-header">
+            <span><%= __('toc_title') %></span>
+          </div>
+
+          <nav class="toc-nav">
+            <%- toc(page.content, { list_number: false, max_depth: theme.toc.max_depth || 3 }) %>
+          </nav>
+        </div>
+      </aside>
+    <% } %>
+
+  </div>
+</div>
+
+<style>
+  /* Standardize Hexo generated TOC markup into Claude CSS */
+  .toc-nav ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  .toc-nav li {
+    margin: 0;
+  }
+  .toc-nav .toc-child {
+    padding-left: 0.875rem;
+  }
+  .toc-nav .toc-link {
+    display: block;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-radius: 0 0.25rem 0.25rem 0;
+    border-left: 2px solid transparent;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .toc-nav .toc-link:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-subtle);
+  }
+  .toc-nav .toc-link.active {
+    color: var(--brand);
+    background-color: var(--brand-subtle);
+    border-left: 2px solid var(--brand);
+    font-weight: 500;
+  }
+</style>
