@@ -99,6 +99,11 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+}
+
+.site-header .nav-link {
+  /* font-size: 1rem; */
 }
 
 .brand-logo {
